@@ -1,6 +1,7 @@
 import "./App.css";
 import Card from "./components/Card";
 import Chart from "./components/Chart";
+import Details from "./components/Details";
 import Overview from "./components/Overview";
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
         />
       </div>
       <div className="row-span-3 p-2">
-        <Card></Card>
+        <Details />
       </div>
     </div>
   );

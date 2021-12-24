@@ -1,5 +1,6 @@
 import "./App.css";
 import Card from "./components/Card";
+import Chart from "./components/Chart";
 
 function App() {
   return (
@@ -7,13 +8,13 @@ function App() {
       <div className="col-span-3 flex justify-start items-center px-32">
         <h1 className="text-5xl">Apple Inc.</h1>
       </div>
-      <div className="col-span-2 row-span-4 p-4">
+      <div className="col-span-2 row-span-4 p-2">
+        <Chart />
+      </div>
+      <div className="p-2">
         <Card></Card>
       </div>
-      <div className="p-4">
-        <Card></Card>
-      </div>
-      <div className="row-span-3 p-4">
+      <div className="row-span-3 p-2">
         <Card></Card>
       </div>
     </div>

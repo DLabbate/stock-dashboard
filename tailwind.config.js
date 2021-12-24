@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         raleway: ["Raleway", "sans-serif"],
       },
+      borderWidth: {
+        1: "1px",
+      },
     },
   },
   plugins: [],

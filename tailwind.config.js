@@ -6,7 +6,7 @@ module.exports = {
         white: "white",
       },
       fontFamily: {
-        raleway: ["Raleway", "sans-serif"],
+        raleway: ["Quicksand", "sans-serif"],
       },
       borderWidth: {
         1: "1px",

@@ -1,6 +1,7 @@
 import "./App.css";
 import Card from "./components/Card";
 import Chart from "./components/Chart";
+import Overview from "./components/Overview";
 
 function App() {
   return (
@@ -12,7 +13,12 @@ function App() {
         <Chart />
       </div>
       <div className="p-2">
-        <Card></Card>
+        <Overview
+          symbol={"AAPL"}
+          price={130.63}
+          change={130.63}
+          changePercent={0.67}
+        />
       </div>
       <div className="row-span-3 p-2">
         <Card></Card>

@@ -27,7 +27,7 @@ const Chart = () => {
 
   return (
     <Card>
-      <ul className="flex absolute top-4 right-4 z-50">
+      <ul className="flex absolute top-2 right-2 z-50">
         {chartFilters.map((item) => (
           <li>
             <Button
@@ -60,7 +60,7 @@ const Chart = () => {
             stroke="#312e81"
             fill="url(#chartColor)"
             fillOpacity={1}
-            strokeWidth={2}
+            strokeWidth={1}
           />
           <XAxis dataKey="date" />
           <YAxis />

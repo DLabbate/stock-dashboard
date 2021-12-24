@@ -27,7 +27,7 @@ const Chart = () => {
 
   return (
     <Card>
-      <ul className="flex absolute top-2 right-2 z-50">
+      <ul className="flex absolute top-2 right-2 z-40">
         {chartFilters.map((item) => (
           <li>
             <Button

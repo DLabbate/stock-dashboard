@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const sampleSearchOptions = {
   bestMatches: [
@@ -56,10 +56,12 @@ const Search = () => {
       </svg>
       <input
         type="text"
-        className="px-4 py-2 w-80 focus:outline-none text-neutral-500"
+        className="px-4 py-2 w-80 focus:outline-none text-neutral-500 peer"
         placeholder="Search stock..."
       />
-      <ul className="absolute top-12 bg-white border-2 border-neutral-200 w-full rounded-md">
+      <ul
+        className={`absolute top-12 bg-white border-2 border-neutral-200 w-full rounded-md peer-focus:block hidden`}
+      >
         {sampleSearchOptions.bestMatches.map((item) => {
           console.log(item);
           return (

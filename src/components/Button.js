@@ -6,8 +6,8 @@ const Button = ({ text, active, onClick }) => {
       onClick={onClick}
       className={`w-12 m-2 h-8 border-1 rounded-md flex items-center justify-center cursor-pointer ${
         active
-          ? "bg-violet-600 border-violet-700 text-white"
-          : "border-violet-300 text-violet-300"
+          ? "bg-indigo-600 border-indigo-700 text-white"
+          : "border-indigo-300 text-indigo-300"
       }`}
     >
       {text}

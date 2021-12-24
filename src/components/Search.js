@@ -1,42 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { sampleSearchOptions } from "../constants/mock";
 
-const sampleSearchOptions = {
-  bestMatches: [
-    {
-      "1. symbol": "TSCO.LON",
-      "2. name": "Tesco PLC",
-      "3. type": "Equity",
-      "4. region": "United Kingdom",
-      "5. marketOpen": "08:00",
-      "6. marketClose": "16:30",
-      "7. timezone": "UTC+00",
-      "8. currency": "GBX",
-      "9. matchScore": "0.7273",
-    },
-    {
-      "1. symbol": "TSCDF",
-      "2. name": "Tesco plc",
-      "3. type": "Equity",
-      "4. region": "United States",
-      "5. marketOpen": "09:30",
-      "6. marketClose": "16:00",
-      "7. timezone": "UTC-04",
-      "8. currency": "USD",
-      "9. matchScore": "0.7143",
-    },
-    {
-      "1. symbol": "TSCDY",
-      "2. name": "Tesco plc",
-      "3. type": "Equity",
-      "4. region": "United States",
-      "5. marketOpen": "09:30",
-      "6. marketClose": "16:00",
-      "7. timezone": "UTC-04",
-      "8. currency": "USD",
-      "9. matchScore": "0.7143",
-    },
-  ],
-};
 const Search = () => {
   return (
     <div className="flex items-center mx-16 bg-white border-2 border-neutral-200 rounded-md relative z-50">

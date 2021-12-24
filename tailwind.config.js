@@ -5,6 +5,9 @@ module.exports = {
       colors: {
         white: "white",
       },
+      fontFamily: {
+        raleway: ["Raleway", "sans-serif"],
+      },
     },
   },
   plugins: [],

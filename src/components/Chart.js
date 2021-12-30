@@ -9,6 +9,8 @@ import {
   AreaChart,
   Tooltip,
 } from "recharts";
+import { intradayData } from "../constants/mock";
+import { type } from "@testing-library/user-event/dist/type";
 
 const Chart = () => {
   const chartFilters = ["1D", "1W", "1M", "1Y"];
@@ -20,8 +22,17 @@ const Chart = () => {
     let current = 1000;
     for (let i = 0; i < 100; i++) {
       current += Math.random() * 100 - 50;
-      data.push({ date: "11:00 am", value: current });
+      data.push({ time: "11:00 am", value: current });
     }
+    return data;
+  };
+
+  const formatData = () => {
+    let data = [];
+    Object.entries(intradayData["Time Series (5min)"]).forEach((item) => {
+      data.push({ time: item[0], value: item[1]["4. close"] });
+    });
+    console.log(data);
     return data;
   };
 
@@ -40,9 +51,9 @@ const Chart = () => {
           </li>
         ))}
       </ul>
-
+      {/* {formatData()} */}
       <ResponsiveContainer>
-        <AreaChart data={randomData()}>
+        <AreaChart data={formatData()}>
           <defs>
             <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1">
               <stop
@@ -62,8 +73,8 @@ const Chart = () => {
             fillOpacity={1}
             strokeWidth={1}
           />
-          <XAxis dataKey="date" />
-          <YAxis />
+          <XAxis dataKey="time" />
+          <YAxis domain={["dataMin", "dataMax"]} />
         </AreaChart>
       </ResponsiveContainer>
     </Card>

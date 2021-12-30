@@ -29,7 +29,7 @@ const Search = () => {
         {sampleSearchOptions.bestMatches.map((item) => {
           console.log(item);
           return (
-            <li className="cursor-pointer p-4 flex items-center justify-between rounded-md hover:bg-indigo-200">
+            <li className="cursor-pointer p-4 m-2 flex items-center justify-between rounded-md hover:bg-indigo-200">
               <span>{item["1. symbol"]}</span>
               <span>{item["2. name"]}</span>
             </li>

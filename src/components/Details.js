@@ -19,20 +19,19 @@ const Details = () => {
 
   return (
     <Card>
-      <ul className="w-full h-full flex flex-col justify-between divide-y-2">
-        {Object.keys(companyDetails).map(
-          (item) =>
-            detailsList[item] && (
-              <li className="flex-1 flex justify-between items-center">
-                <span>{detailsList[item]}</span>
-                <span className="font-bold">
-                  {item === "MarketCapitalization"
-                    ? `${convertToBillion(companyDetails[item])}B`
-                    : companyDetails[item]}
-                </span>
-              </li>
-            )
-        )}
+      <ul className="w-full h-full flex flex-col justify-between divide-y-1">
+        {Object.keys(detailsList).map((item) => {
+          return (
+            <li className="flex-1 flex justify-between items-center">
+              <span>{detailsList[item]}</span>
+              <span className="font-bold">
+                {item === "MarketCapitalization"
+                  ? `${convertToBillion(companyDetails[item])}B`
+                  : companyDetails[item]}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </Card>
   );

@@ -6,7 +6,7 @@ const Search = () => {
   const { darkMode } = useContext(ThemeContext);
   return (
     <div
-      className={`flex items-center mx-16 bg-white border-2 border-neutral-200 rounded-md relative z-50 ${
+      className={`flex items-center my-4 bg-white border-2 border-neutral-200 rounded-md relative z-50 ${
         darkMode ? "bg-gray-900 border-gray-800" : null
       }`}
     >

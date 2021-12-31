@@ -16,15 +16,18 @@ function App() {
           darkMode ? "bg-gray-900 text-gray-300" : null
         }`}
       >
-        <div className="col-span-3 flex justify-start items-center px-32">
-          <h1 className="text-5xl">Apple Inc.</h1>
-          <Search />
+        <div className="col-span-3 flex justify-start items-center">
+          <div className="xl:px-32">
+            <h1 className="text-5xl">Apple Inc.</h1>
+            <Search />
+          </div>
+
           <ThemeIcon />
         </div>
-        <div className="col-span-2 row-span-4 p-2">
+        <div className="col-span-3 xl:col-span-2 row-span-4 p-2">
           <Chart />
         </div>
-        <div className="p-2">
+        <div className="col-span-1 xl:col-span-1 p-2">
           <Overview
             symbol={"AAPL"}
             price={130.63}
@@ -32,7 +35,7 @@ function App() {
             changePercent={0.67}
           />
         </div>
-        <div className="row-span-3 p-2">
+        <div className="col-span-2 xl:col-span-1 row-span-3 p-2">
           <Details />
         </div>
       </div>

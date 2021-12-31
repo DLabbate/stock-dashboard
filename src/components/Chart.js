@@ -59,7 +59,10 @@ const Chart = () => {
               />
             </linearGradient>
           </defs>
-          <Tooltip />
+          <Tooltip
+            contentStyle={darkMode ? { backgroundColor: "#111827" } : null}
+            itemStyle={darkMode ? { color: "#818cf8" } : null}
+          />
           <Area
             type="monotone"
             dataKey="value"

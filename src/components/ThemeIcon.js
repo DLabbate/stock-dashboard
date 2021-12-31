@@ -17,9 +17,9 @@ const ThemeIcon = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="h-8 w-8 cursor-pointer"
-        fill="none"
+        fill={`${darkMode ? "#facc15" : "none"}`}
         viewBox="0 0 24 24"
-        stroke="rgb(163 163 163)"
+        stroke={`${darkMode ? "#facc15" : "rgb(163 163 163)"}`}
       >
         <path
           strokeLinecap="round"

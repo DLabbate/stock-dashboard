@@ -17,7 +17,7 @@ const Chart = () => {
 
   const [filter, setFilter] = useState("1D");
 
-  const { darkMode, setDarkMode } = useContext(ThemeContext);
+  const { darkMode } = useContext(ThemeContext);
   const formatData = () => {
     let data = [];
     Object.entries(intradayData["Time Series (5min)"]).forEach((item) => {

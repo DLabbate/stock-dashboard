@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 
 const Card = ({ children }) => {
-  const { darkMode, setDarkMode } = useContext(ThemeContext);
+  const { darkMode } = useContext(ThemeContext);
   return (
     <div
       className={`w-full h-full bg-white border-2 border-neutral-200 rounded-md relative p-8 ${

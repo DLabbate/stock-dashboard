@@ -15,7 +15,11 @@ const Overview = ({ symbol, price, change, changePercent }) => {
           </span>
         </span>
 
-        <span className="text-lg xl:text-xl 2xl:text-2xl text-lime-500">
+        <span
+          className={`text-lg xl:text-xl 2xl:text-2xl ${
+            change > 0 ? "text-lime-500" : "text-red-500"
+          }`}
+        >
           +{change} <span>(+{changePercent}%)</span>
         </span>
       </div>

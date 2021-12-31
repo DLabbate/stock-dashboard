@@ -18,12 +18,12 @@ const Chart = () => {
   const [filter, setFilter] = useState("1D");
 
   const { darkMode } = useContext(ThemeContext);
+
   const formatData = () => {
     let data = [];
     Object.entries(intradayData["Time Series (5min)"]).forEach((item) => {
       data.push({ time: item[0], value: item[1]["4. close"] });
     });
-    console.log(data);
     return data;
   };
 
@@ -31,7 +31,7 @@ const Chart = () => {
     <Card>
       <ul className="flex absolute top-2 right-2 z-40">
         {chartFilters.map((item) => (
-          <li>
+          <li key={item}>
             <Button
               text={item}
               active={filter === item}
@@ -42,7 +42,6 @@ const Chart = () => {
           </li>
         ))}
       </ul>
-      {/* {formatData()} */}
       <ResponsiveContainer>
         <AreaChart data={formatData()}>
           <defs>

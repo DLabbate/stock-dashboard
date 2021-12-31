@@ -28,7 +28,7 @@ const Details = () => {
       >
         {Object.keys(detailsList).map((item) => {
           return (
-            <li className="flex-1 flex justify-between items-center">
+            <li key={item} className="flex-1 flex justify-between items-center">
               <span>{detailsList[item]}</span>
               <span className="font-bold">
                 {item === "MarketCapitalization"

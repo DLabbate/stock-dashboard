@@ -37,9 +37,9 @@ const Search = () => {
         }`}
       >
         {sampleSearchOptions.bestMatches.map((item) => {
-          console.log(item);
           return (
             <li
+              key={item["1. symbol"]}
               className={`cursor-pointer p-4 m-2 flex items-center justify-between rounded-md hover:bg-indigo-200 ${
                 darkMode ? "hover:bg-indigo-600" : null
               }`}

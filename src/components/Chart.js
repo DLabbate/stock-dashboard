@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "./Button";
 import Card from "./Card";
 import {
@@ -10,23 +10,14 @@ import {
   Tooltip,
 } from "recharts";
 import { intradayData } from "../constants/mock";
-import { type } from "@testing-library/user-event/dist/type";
+import ThemeContext from "../context/ThemeContext";
 
 const Chart = () => {
   const chartFilters = ["1D", "1W", "1M", "1Y"];
 
   const [filter, setFilter] = useState("1D");
 
-  const randomData = () => {
-    let data = [];
-    let current = 1000;
-    for (let i = 0; i < 100; i++) {
-      current += Math.random() * 100 - 50;
-      data.push({ time: "11:00 am", value: current });
-    }
-    return data;
-  };
-
+  const { darkMode, setDarkMode } = useContext(ThemeContext);
   const formatData = () => {
     let data = [];
     Object.entries(intradayData["Time Series (5min)"]).forEach((item) => {
@@ -58,10 +49,14 @@ const Chart = () => {
             <linearGradient id="chartColor" x1="0" y1="0" x2="0" y2="1">
               <stop
                 offset="5%"
-                stopColor="rgb(199 210 254)"
+                stopColor={darkMode ? "#312e81" : "rgb(199 210 254)"}
                 stopOpacity={0.8}
               />
-              <stop offset="95%" stopColor="rgb(199 210 254)" stopOpacity={0} />
+              <stop
+                offset="95%"
+                stopColor={darkMode ? "#312e81" : "rgb(199 210 254)"}
+                stopOpacity={0}
+              />
             </linearGradient>
           </defs>
           <Tooltip />

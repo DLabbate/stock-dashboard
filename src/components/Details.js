@@ -1,41 +1,39 @@
 import React from "react";
 import Card from "./Card";
+import { companyDetails } from "../constants/mock";
 
 const Details = () => {
+  const detailsList = {
+    Exchange: "Exchange",
+    Country: "Country",
+    Sector: "Sector",
+    MarketCapitalization: "Market Capitalization",
+    DividendYield: "Dividend Yield",
+    PERatio: "PE Ratio",
+    EPS: "EPS",
+  };
+
+  const convertToBillion = (number) => {
+    return (number / 1000000000).toFixed(2);
+  };
+
   return (
     <Card>
-      <table className="w-full h-full">
-        <tbody className="divide-y-1 divide-neutral-200">
-          <tr>
-            <td>Exchange</td>
-            <td className="font-bold">NYSE</td>
-          </tr>
-          <tr>
-            <td>Country</td>
-            <td className="font-bold">USA</td>
-          </tr>
-          <tr>
-            <td>Sector</td>
-            <td className="font-bold">Technology</td>
-          </tr>
-          <tr>
-            <td>Market Cap</td>
-            <td className="font-bold">1000B</td>
-          </tr>
-          <tr>
-            <td>Dividend Yield</td>
-            <td className="font-bold">0.0507</td>
-          </tr>
-          <tr>
-            <td>P/E Ratio</td>
-            <td className="font-bold">25.28</td>
-          </tr>
-          <tr>
-            <td>EPS</td>
-            <td className="font-bold">5.28</td>
-          </tr>
-        </tbody>
-      </table>
+      <ul className="w-full h-full flex flex-col justify-between divide-y-2">
+        {Object.keys(companyDetails).map(
+          (item) =>
+            detailsList[item] && (
+              <li className="flex-1 flex justify-between items-center">
+                <span>{detailsList[item]}</span>
+                <span className="font-bold">
+                  {item === "MarketCapitalization"
+                    ? `${convertToBillion(companyDetails[item])}B`
+                    : companyDetails[item]}
+                </span>
+              </li>
+            )
+        )}
+      </ul>
     </Card>
   );
 };

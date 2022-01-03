@@ -34,7 +34,7 @@ const Search = () => {
       <ul
         className={`absolute top-12 border-2 w-full rounded-md peer-focus:block hidden ${
           darkMode
-            ? "bg-gray-900 border-1 border-gray-800"
+            ? "bg-gray-900 border-gray-800"
             : "bg-white border-neutral-200 "
         }`}
       >

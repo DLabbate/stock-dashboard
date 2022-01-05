@@ -15,3 +15,9 @@ export const quoteStock = async (stockSymbol) => {
   const response = await fetch(url);
   return await response.json();
 };
+
+export const fetchHistoricalData = async (stockSymbol, from, to) => {
+  const url = `https://finnhub.io/api/v1/stock/candle?symbol=${stockSymbol}&resolution=1&from=${from}&to=${to}&token=${process.env.REACT_APP_API_KEY}`;
+  const response = await fetch(url);
+  return await response.json();
+};

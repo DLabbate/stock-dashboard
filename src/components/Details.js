@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import Card from "./Card";
-import { companyDetails } from "../constants/mock";
 import ThemeContext from "../context/ThemeContext";
 
 const Details = ({ details }) => {
   const { darkMode } = useContext(ThemeContext);
+
   const detailsList = {
     name: "Name",
     country: "Country",

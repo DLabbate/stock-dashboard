@@ -20,14 +20,14 @@ const Search = () => {
 
   return (
     <div
-      className={`flex items-center my-4 border-2 rounded-md relative z-50 ${
+      className={`flex items-center my-4 border-2 rounded-md relative z-50 w-96 ${
         darkMode ? "bg-gray-900 border-gray-800" : "bg-white border-neutral-200"
       }`}
     >
       <input
         type="text"
         value={input}
-        className={`px-4 py-2 w-96 focus:outline-none text-neutral-500 rounded-md ${
+        className={`w-full px-4 py-2 focus:outline-none text-neutral-500 rounded-md ${
           darkMode ? "bg-gray-900" : null
         }`}
         placeholder="Search stock..."

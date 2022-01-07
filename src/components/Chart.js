@@ -15,11 +15,11 @@ import { fetchHistoricalData } from "../utils/api/stock-api";
 import {
   createDate,
   convertDateToUnixTimestamp,
+  convertUnixTimestampToDate,
 } from "../utils/helpers/date-helper";
+import { chartConfig } from "../constants/config";
 
 const Chart = () => {
-  const chartFilters = ["1D", "1W", "1M", "1Y"];
-
   const [filter, setFilter] = useState("1D");
 
   const { darkMode } = useContext(ThemeContext);
@@ -32,39 +32,33 @@ const Chart = () => {
     return data.c.map((item, index) => {
       return {
         value: item.toFixed(2),
-        // time: new Date(data.t[index] * 1000).toLocaleDateString(),
-        time: new Date(data.t[index] * 1000).toLocaleDateString(),
-        //time: data.t,
+        date: convertUnixTimestampToDate(data.t[index]),
       };
     });
   };
 
-  const chartConfig = {
-    "1D": { resolution: "1", days: 1, weeks: 0, months: 0, years: 0 },
-    "1W": { resolution: "15", days: 0, weeks: 1, months: 0, years: 0 },
-    "1M": { resolution: "60", days: 0, weeks: 0, months: 1, years: 0 },
-    "1Y": { resolution: "D", days: 0, weeks: 0, months: 0, years: 1 },
-  };
-
   useEffect(() => {
+    const getDateRange = () => {
+      const { days, weeks, months, years } = chartConfig[filter];
+
+      const endDate = new Date();
+      const startDate = createDate(endDate, -days, -weeks, -months, -years);
+
+      const startTimestampUnix = convertDateToUnixTimestamp(startDate);
+      const endTimestampUnix = convertDateToUnixTimestamp(endDate);
+      return { startTimestampUnix, endTimestampUnix };
+    };
+
     const updateChartData = async () => {
       try {
-        const endDate = new Date();
-        const startDate = createDate(
-          endDate,
-          -chartConfig[filter].days,
-          -chartConfig[filter].weeks,
-          -chartConfig[filter].months,
-          -chartConfig[filter].years
-        );
-        console.log(startDate, endDate);
+        const { startTimestampUnix, endTimestampUnix } = getDateRange();
+        const resolution = chartConfig[filter].resolution;
         const result = await fetchHistoricalData(
           stockSymbol,
-          chartConfig[filter].resolution,
-          convertDateToUnixTimestamp(startDate),
-          convertDateToUnixTimestamp(endDate)
+          resolution,
+          startTimestampUnix,
+          endTimestampUnix
         );
-        console.log(result);
         setData(formatData(result));
       } catch (error) {
         console.log(error);
@@ -78,7 +72,7 @@ const Chart = () => {
   return (
     <Card>
       <ul className="flex absolute top-2 right-2 z-40">
-        {chartFilters.map((item) => (
+        {Object.keys(chartConfig).map((item) => (
           <li key={item}>
             <Button
               text={item}
@@ -118,7 +112,7 @@ const Chart = () => {
             fillOpacity={1}
             strokeWidth={0.5}
           />
-          <XAxis dataKey="time" />
+          <XAxis dataKey="date" />
           <YAxis domain={["dataMin", "dataMax"]} />
         </AreaChart>
       </ResponsiveContainer>

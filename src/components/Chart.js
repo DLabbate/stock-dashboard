@@ -9,10 +9,13 @@ import {
   AreaChart,
   Tooltip,
 } from "recharts";
-import { intradayData } from "../constants/mock";
 import ThemeContext from "../context/ThemeContext";
 import StockContext from "../context/StockContext";
 import { fetchHistoricalData } from "../utils/api/stock-api";
+import {
+  createDate,
+  convertDateToUnixTimestamp,
+} from "../utils/helpers/date-helper";
 
 const Chart = () => {
   const chartFilters = ["1D", "1W", "1M", "1Y"];
@@ -25,10 +28,6 @@ const Chart = () => {
 
   const [data, setData] = useState([]);
 
-  const convertDateToUnixTimestamp = (date) => {
-    return Math.floor(date.getTime() / 1000);
-  };
-
   const formatData = (data) => {
     return data.c.map((item, index) => {
       return {
@@ -40,24 +39,32 @@ const Chart = () => {
     });
   };
 
-  const chartFilters2 = {
-    "1D": { resolution: 1, seconds: 60 * 60 * 24 },
-    "1W": { resolution: 1, seconds: 60 * 60 * 24 },
-    "1M": { resolution: 1, seconds: 60 * 60 * 24 },
-    "1Y": { resolution: 1, seconds: 60 * 60 * 24 },
+  const chartConfig = {
+    "1D": { resolution: "1", days: 1, weeks: 0, months: 0, years: 0 },
+    "1W": { resolution: "15", days: 0, weeks: 1, months: 0, years: 0 },
+    "1M": { resolution: "60", days: 0, weeks: 0, months: 1, years: 0 },
+    "1Y": { resolution: "D", days: 0, weeks: 0, months: 0, years: 1 },
   };
 
   useEffect(() => {
     const updateChartData = async () => {
       try {
-        const today = new Date();
-        const oneDay = 60 * 60 * 24;
-        console.log(convertDateToUnixTimestamp(today));
+        const endDate = new Date();
+        const startDate = createDate(
+          endDate,
+          chartConfig[filter].days,
+          chartConfig[filter].weeks,
+          chartConfig[filter].months,
+          chartConfig[filter].years
+        );
+        console.log(startDate, endDate);
         const result = await fetchHistoricalData(
           stockSymbol,
-          convertDateToUnixTimestamp(today) - oneDay,
-          convertDateToUnixTimestamp(today)
+          chartConfig[filter].resolution,
+          convertDateToUnixTimestamp(startDate),
+          convertDateToUnixTimestamp(endDate)
         );
+        console.log(result);
         setData(formatData(result));
       } catch (error) {
         console.log(error);
@@ -66,7 +73,7 @@ const Chart = () => {
     };
 
     updateChartData();
-  }, [stockSymbol]);
+  }, [stockSymbol, filter]);
 
   return (
     <Card>

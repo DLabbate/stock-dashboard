@@ -34,7 +34,8 @@ const Chart = () => {
       return {
         value: item.toFixed(2),
         // time: new Date(data.t[index] * 1000).toLocaleDateString(),
-        time: data.t,
+        time: new Date(data.t[index] * 1000).toLocaleDateString(),
+        //time: data.t,
       };
     });
   };
@@ -48,17 +49,20 @@ const Chart = () => {
 
   useEffect(() => {
     const updateChartData = async () => {
-      const today = new Date();
-      const oneDay = 60 * 60 * 24;
-      console.log(convertDateToUnixTimestamp(today));
-      const result = await fetchHistoricalData(
-        stockSymbol,
-        convertDateToUnixTimestamp(today) - oneDay,
-        convertDateToUnixTimestamp(today)
-      );
-      console.log(result);
-      console.log("Formatted data", formatData(result));
-      setData(formatData(result));
+      try {
+        const today = new Date();
+        const oneDay = 60 * 60 * 24;
+        console.log(convertDateToUnixTimestamp(today));
+        const result = await fetchHistoricalData(
+          stockSymbol,
+          convertDateToUnixTimestamp(today) - oneDay,
+          convertDateToUnixTimestamp(today)
+        );
+        setData(formatData(result));
+      } catch (error) {
+        console.log(error);
+        setData([]);
+      }
     };
 
     updateChartData();

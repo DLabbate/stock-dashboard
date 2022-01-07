@@ -12,7 +12,7 @@ const Search = () => {
     const searchResults = await searchSymbol(input);
     const result = searchResults.result;
     if (result) {
-      setBestMatches(result.splice(0, 10));
+      setBestMatches(result);
     } else {
       setBestMatches([]);
     }

@@ -16,8 +16,21 @@ export const quoteStock = async (stockSymbol) => {
   return await response.json();
 };
 
+/**
+ * Fetches historical data of a stock (to be displayed on a chart)
+ * @param {string} stockSymbol - Symbol of the company, e.g. AMZN
+ * @param {Number} from - UNIX timestamp (seconds elapsed since January 1st, 1970 at UTC). Interval initial value.
+ * @param {Number} to - UNIX timestamp (seconds elapsed since January 1st, 1970 at UTC). Interval end value.
+ * @returns {Promise<Object>} - Response object
+ */
 export const fetchHistoricalData = async (stockSymbol, from, to) => {
   const url = `https://finnhub.io/api/v1/stock/candle?symbol=${stockSymbol}&resolution=1&from=${from}&to=${to}&token=${process.env.REACT_APP_API_KEY}`;
   const response = await fetch(url);
+
+  if (!response.ok) {
+    const message = `An error has occured: ${response.status}`;
+    throw new Error(message);
+  }
+
   return await response.json();
 };

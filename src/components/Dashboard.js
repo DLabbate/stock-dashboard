@@ -33,9 +33,6 @@ const Dashboard = () => {
     updateStockOverview();
   }, [stockSymbol]);
 
-  const formatQuoteAttribute = (attribute) => {
-    return attribute ? attribute : "N/A";
-  };
   return (
     <div
       className={`h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-7 xl:grid-rows-5 auto-rows-fr gap-2 p-8 font-raleway ${
@@ -51,9 +48,9 @@ const Dashboard = () => {
       <div className="p-2">
         <Overview
           symbol={"AAPL"}
-          price={formatQuoteAttribute(quote.pc)}
-          change={formatQuoteAttribute(quote.d)}
-          changePercent={formatQuoteAttribute(quote.dp)}
+          price={quote.pc}
+          change={quote.d}
+          changePercent={quote.dp}
           currency={stockDetails.currency}
         />
       </div>

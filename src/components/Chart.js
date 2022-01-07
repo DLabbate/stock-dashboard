@@ -52,10 +52,10 @@ const Chart = () => {
         const endDate = new Date();
         const startDate = createDate(
           endDate,
-          chartConfig[filter].days,
-          chartConfig[filter].weeks,
-          chartConfig[filter].months,
-          chartConfig[filter].years
+          -chartConfig[filter].days,
+          -chartConfig[filter].weeks,
+          -chartConfig[filter].months,
+          -chartConfig[filter].years
         );
         console.log(startDate, endDate);
         const result = await fetchHistoricalData(

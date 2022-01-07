@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import ThemeContext from "../context/ThemeContext";
 import { searchSymbol } from "../utils/api/stock-api";
 import SearchResults from "./SearchResults";
+import { SearchIcon } from "@heroicons/react/solid";
 
 const Search = () => {
   const { darkMode } = useContext(ThemeContext);
@@ -27,7 +28,7 @@ const Search = () => {
       <input
         type="text"
         value={input}
-        className={`w-full px-4 py-2 focus:outline-none text-neutral-500 rounded-md ${
+        className={`w-full px-4 py-2 focus:outline-none rounded-md ${
           darkMode ? "bg-gray-900" : null
         }`}
         placeholder="Search stock..."
@@ -39,20 +40,7 @@ const Search = () => {
         }}
       />
       <button onClick={updateBestMatches}>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 m-2"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="#737373"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
+        <SearchIcon className="h-6 w-6 m-2 fill-neutral-500" />
       </button>
       {bestMatches.length > 0 ? <SearchResults results={bestMatches} /> : null}
     </div>

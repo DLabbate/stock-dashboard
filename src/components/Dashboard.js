@@ -47,7 +47,7 @@ const Dashboard = () => {
       </div>
       <div className="p-2">
         <Overview
-          symbol={"AAPL"}
+          symbol={stockSymbol}
           price={quote.pc}
           change={quote.d}
           changePercent={quote.dp}

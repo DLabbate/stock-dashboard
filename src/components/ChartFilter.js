@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ text, active, onClick }) => {
+const ChartFilter = ({ text, active, onClick }) => {
   return (
     <button
       onClick={onClick}
@@ -15,4 +15,4 @@ const Button = ({ text, active, onClick }) => {
   );
 };
 
-export default Button;
+export default ChartFilter;

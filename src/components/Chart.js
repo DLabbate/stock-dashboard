@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import Button from "./Button";
+import ChartFilter from "./ChartFilter";
 import Card from "./Card";
 import {
   Area,
@@ -74,7 +74,7 @@ const Chart = () => {
       <ul className="flex absolute top-2 right-2 z-40">
         {Object.keys(chartConfig).map((item) => (
           <li key={item}>
-            <Button
+            <ChartFilter
               text={item}
               active={filter === item}
               onClick={() => {

@@ -32,9 +32,6 @@ const Search = () => {
         darkMode ? "bg-gray-900 border-gray-800" : "bg-white border-neutral-200"
       }`}
     >
-      <button onClick={updateBestMatches}>
-        <SearchIcon className="h-6 w-6 m-2 fill-neutral-500" />
-      </button>
       <input
         type="text"
         value={input}
@@ -50,10 +47,16 @@ const Search = () => {
         }}
       />
       {input && (
-        <button onClick={clear}>
-          <XIcon className="h-6 w-6 m-2 fill-neutral-500" />
+        <button onClick={clear} className="m-1">
+          <XIcon className="h-4 w-4 fill-gray-500" />
         </button>
       )}
+      <button
+        onClick={updateBestMatches}
+        className="h-8 w-8 bg-indigo-600 rounded-md flex justify-center items-center m-1 p-2"
+      >
+        <SearchIcon className="h-4 w-4 fill-gray-100" />
+      </button>
       {bestMatches.length > 0 ? <SearchResults results={bestMatches} /> : null}
     </div>
   );

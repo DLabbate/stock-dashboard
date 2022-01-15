@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       colors: {
         white: "white",
+        none: "none",
       },
       fontFamily: {
         raleway: ["Quicksand", "sans-serif"],

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import StockContext from "./context/StockContext";

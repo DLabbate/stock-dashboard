@@ -14,7 +14,6 @@ const Overview = ({ symbol, price, change, changePercent, currency }) => {
             {currency}
           </span>
         </span>
-
         <span
           className={`text-lg xl:text-xl 2xl:text-2xl ${
             change > 0 ? "text-lime-500" : "text-red-500"

@@ -5,13 +5,15 @@ import Details from "./Details";
 import Chart from "./Chart";
 import Header from "./Header";
 import StockContext from "../context/StockContext";
-import { fetchStockDetails, quoteStock } from "../utils/api/stock-api";
+import { fetchStockDetails, fetchQuote } from "../utils/api/stock-api";
 
 const Dashboard = () => {
   const { darkMode } = useContext(ThemeContext);
-  const { stockSymbol, setStockSymbol } = useContext(StockContext);
+
+  const { stockSymbol } = useContext(StockContext);
 
   const [stockDetails, setStockDetails] = useState({});
+
   const [quote, setQuote] = useState({});
 
   useEffect(() => {
@@ -21,7 +23,7 @@ const Dashboard = () => {
     };
 
     const updateStockOverview = async () => {
-      const result = await quoteStock(stockSymbol);
+      const result = await fetchQuote(stockSymbol);
       if (result) {
         setQuote(result);
       } else {

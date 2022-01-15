@@ -6,7 +6,7 @@ import ThemeContext from "./context/ThemeContext";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
-  const [stockSymbol, setStockSymbol] = useState("AAPL");
+  const [stockSymbol, setStockSymbol] = useState("FB");
 
   useEffect(() => {
     console.log(stockSymbol);

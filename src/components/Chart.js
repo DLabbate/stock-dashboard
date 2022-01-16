@@ -20,7 +20,7 @@ import {
 import { chartConfig } from "../constants/config";
 
 const Chart = () => {
-  const [filter, setFilter] = useState("1D");
+  const [filter, setFilter] = useState("1W");
 
   const { darkMode } = useContext(ThemeContext);
 

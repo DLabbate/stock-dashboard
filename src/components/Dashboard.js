@@ -18,16 +18,22 @@ const Dashboard = () => {
 
   useEffect(() => {
     const updateStockDetails = async () => {
-      const result = await fetchStockDetails(stockSymbol);
-      setStockDetails(result);
+      try {
+        const result = await fetchStockDetails(stockSymbol);
+        setStockDetails(result);
+      } catch (error) {
+        setStockDetails({});
+        console.log(error);
+      }
     };
 
     const updateStockOverview = async () => {
-      const result = await fetchQuote(stockSymbol);
-      if (result) {
+      try {
+        const result = await fetchQuote(stockSymbol);
         setQuote(result);
-      } else {
+      } catch (error) {
         setQuote({});
+        console.log(error);
       }
     };
 

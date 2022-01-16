@@ -6,18 +6,21 @@ import { SearchIcon, XIcon } from "@heroicons/react/solid";
 
 const Search = () => {
   const { darkMode } = useContext(ThemeContext);
+
   const [input, setInput] = useState("");
+
   const [bestMatches, setBestMatches] = useState([]);
 
   const updateBestMatches = async () => {
-    if (input) {
-      const searchResults = await searchSymbol(input);
-      const result = searchResults.result;
-      if (result) {
+    try {
+      if (input) {
+        const searchResults = await searchSymbol(input);
+        const result = searchResults.result;
         setBestMatches(result);
-      } else {
-        setBestMatches([]);
       }
+    } catch (error) {
+      setBestMatches([]);
+      console.log(error);
     }
   };
 

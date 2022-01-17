@@ -1,5 +1,5 @@
 # Stock Dashboard App
-This project is a stock dashboard app with the following functionality:
+This project is a stock dashboard app that uses the [Finnhub API](https://finnhub.io/)
 
 - 🔍 Search for a stock (e.g. AAPL, FB, GOOG)
 

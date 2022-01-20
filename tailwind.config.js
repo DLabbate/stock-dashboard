@@ -9,7 +9,7 @@ module.exports = {
         none: "none",
       },
       fontFamily: {
-        raleway: ["Quicksand", "sans-serif"],
+        quicksand: ["Quicksand", "sans-serif"],
       },
       borderWidth: {
         1: "1px",

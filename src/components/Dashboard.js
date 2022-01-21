@@ -43,17 +43,17 @@ const Dashboard = () => {
 
   return (
     <div
-      className={`h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 xl:grid-rows-5 auto-rows-fr gap-2 p-8 font-quicksand ${
+      className={`h-screen grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-8 xl:grid-rows-5 auto-rows-fr gap-6 p-10 font-quicksand ${
         darkMode ? "bg-gray-900 text-gray-300" : "bg-neutral-100"
       }`}
     >
       <div className="col-span-1 md:col-span-2 xl:col-span-3 row-span-1 flex justify-start items-center">
         <Header name={stockDetails.name} />
       </div>
-      <div className="md:col-span-2 row-span-4 p-2">
+      <div className="md:col-span-2 row-span-4">
         <Chart />
       </div>
-      <div className="p-2">
+      <div>
         <Overview
           symbol={stockSymbol}
           price={quote.pc}
@@ -62,7 +62,7 @@ const Dashboard = () => {
           currency={stockDetails.currency}
         />
       </div>
-      <div className="row-span-2 xl:row-span-3 p-2">
+      <div className="row-span-2 xl:row-span-3">
         <Details details={stockDetails} />
       </div>
     </div>

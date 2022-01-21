@@ -15,7 +15,7 @@ const Details = ({ details }) => {
     finnhubIndustry: "Industry",
   };
 
-  const convertToBillion = (number) => {
+  const convertMillionToBillion = (number) => {
     return (number / 1000).toFixed(2);
   };
 
@@ -32,7 +32,7 @@ const Details = ({ details }) => {
               <span>{detailsList[item]}</span>
               <span className="font-bold">
                 {item === "marketCapitalization"
-                  ? `${convertToBillion(details[item])}B`
+                  ? `${convertMillionToBillion(details[item])}B`
                   : details[item]}
               </span>
             </li>

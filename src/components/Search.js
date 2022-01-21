@@ -60,7 +60,9 @@ const Search = () => {
       >
         <SearchIcon className="h-4 w-4 fill-gray-100" />
       </button>
-      {bestMatches.length > 0 ? <SearchResults results={bestMatches} /> : null}
+      {input && bestMatches.length > 0 ? (
+        <SearchResults results={bestMatches} />
+      ) : null}
     </div>
   );
 };

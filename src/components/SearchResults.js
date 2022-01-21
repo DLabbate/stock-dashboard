@@ -20,7 +20,7 @@ const SearchResults = ({ results }) => {
         return (
           <li
             key={item.symbol}
-            className={`cursor-pointer p-4 m-2 flex items-center justify-between rounded-md ${
+            className={`cursor-pointer p-4 m-2 flex items-center justify-between rounded-md transition duration-300 ${
               darkMode ? "hover:bg-indigo-600" : "hover:bg-indigo-200 "
             }`}
             onClick={() => setStockSymbol(item.symbol)}

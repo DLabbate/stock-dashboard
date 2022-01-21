@@ -50,6 +50,8 @@ export const mockStockQuote = {
   o: 261.07,
   pc: 259.45,
   t: 1582641000,
+  d: -8.2,
+  dp: 1.2,
 };
 
 export const mockHistoricalData = {

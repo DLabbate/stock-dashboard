@@ -13,7 +13,6 @@
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: #a5b4fc;
-    height: 50px;
     width: 5px;
     border-radius: 10px;
   }

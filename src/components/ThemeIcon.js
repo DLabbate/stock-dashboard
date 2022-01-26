@@ -1,7 +1,5 @@
-import React from "react";
-
+import React, { useContext } from "react";
 import { MoonIcon } from "@heroicons/react/solid";
-import { useContext } from "react/cjs/react.development";
 import ThemeContext from "../context/ThemeContext";
 
 const ThemeIcon = () => {

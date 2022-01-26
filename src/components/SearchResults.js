@@ -1,5 +1,4 @@
-import React from "react";
-import { useContext } from "react/cjs/react.development";
+import React, { useContext } from "react";
 import ThemeContext from "../context/ThemeContext";
 import StockContext from "../context/StockContext";
 

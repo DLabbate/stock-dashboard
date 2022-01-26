@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import React, { useState } from "react";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import ThemeContext from "./context/ThemeContext";

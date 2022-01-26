@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "./Header";
 import { mockCompanyDetails, mockStockQuote } from "../constants/mock";
 import Details from "./Details";
 import Overview from "./Overview";
 import Chart from "./Chart";
-import { useContext } from "react/cjs/react.development";
 import ThemeContext from "../context/ThemeContext";
 
 const Dashboard = () => {

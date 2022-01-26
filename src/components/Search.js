@@ -1,6 +1,5 @@
 import { XIcon, SearchIcon } from "@heroicons/react/solid";
-import React from "react";
-import { useState } from "react/cjs/react.development";
+import React, { useState } from "react";
 import { mockSearchResults } from "../constants/mock";
 import SearchResults from "./SearchResults";
 
